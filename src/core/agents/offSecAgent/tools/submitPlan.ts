@@ -32,7 +32,7 @@ Only call this when the plan is complete and ready for review.`,
       const planPath = planFilePath(ctx.session.rootPath, scopeId);
       console.error(`[submit_plan] enter: path=${planPath}`);
       const plan = readPlan(ctx.session.rootPath, scopeId);
-      if (!plan || !plan.trim()) {
+      if (!plan?.trim()) {
         return {
           success: false,
           error:

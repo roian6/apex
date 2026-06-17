@@ -19,8 +19,8 @@
  */
 
 import { tool } from "ai";
-import { existsSync, mkdirSync, writeFileSync } from "fs";
-import { dirname, join } from "path";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { dirname, join } from "node:path";
 import { z } from "zod";
 import {
   resolveEffectiveHeaders,
@@ -152,9 +152,9 @@ export async function installSandboxPlaywright(
         await new Promise((r) => setTimeout(r, 3000));
       }
     }
-    if (!browserResult!.success) {
+    if (!browserResult?.success) {
       throw new Error(
-        `Failed to install Chromium in sandbox: ${browserResult!.stderr || browserResult!.stdout}`,
+        `Failed to install Chromium in sandbox: ${browserResult?.stderr || browserResult?.stdout}`,
       );
     }
   }
